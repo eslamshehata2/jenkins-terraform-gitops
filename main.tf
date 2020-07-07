@@ -1,18 +1,12 @@
-# Terraform state will be stored in S3
-terraform {
-  backend "s3" {
+ provider "aws" {
+   access_key = "AKIAXD7DMPNEYZ3K7FHQ"
+   secret_key = "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"
+   region  =  "us-east-2"
+}
+resource "aws_s3_bucket" "storage_n" {
     bucket = "terraform-bucket-alexx"
-    key    = "terraform.tff"
     region = "us-east-2"
   }
-}
-
-# Use AWS Terraform provider
-provider "aws" {
-  region = "us-east-2"
-}
-
-# Create EC2 instance
 resource "aws_instance" "default" {
   ami                    = var.ami
   count                  = var.instance_count
@@ -25,8 +19,6 @@ resource "aws_instance" "default" {
     Name = "terraform-default"
   }
 }
-
-# Create Security Group for EC2
 resource "aws_security_group" "default" {
   name = "terraform-default-sg"
 
