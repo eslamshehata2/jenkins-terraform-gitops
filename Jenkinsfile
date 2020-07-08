@@ -19,6 +19,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
+          cp /var/lib/jenkins/workspace/terraform     .
           sh './terraform init'
         }
       }
