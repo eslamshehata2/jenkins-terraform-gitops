@@ -4,7 +4,7 @@ variable "instance_count" {
 
 variable "key_name" {
   description = "Private key name to use with instance"
-  default     = "test"
+  default     = "eslam"
 }
 
 variable "instance_type" {
